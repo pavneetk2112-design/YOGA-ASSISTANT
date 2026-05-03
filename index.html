@@ -3,206 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yoga Coach Pro</title>
+<title>Yoga With Serenity</title>
 
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --white:#ffffff;
-  --pink:#ff6f91;
-  --peach:#ffb7a5;
-  --blue:#6ec6ff;
-  --soft:#f8f9fa;
+  --bg:#0f172a;
+  --card:#1e293b;
+  --text:#e2e8f0;
+  --sub:#94a3b8;
+  --accent:#22c55e;
 }
 
 body{
   margin:0;
-  font-family:'Segoe UI';
-  background:linear-gradient(135deg,var(--white),var(--peach),var(--blue));
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
-.navbar{
+header{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.logo{
+  font-size:3rem;
+  font-weight:700;
+}
+
+.tagline{
+  color:var(--sub);
+  margin-top:10px;
+}
+
+.hero{
+  height:60vh;
+  background:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b') center/cover;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:15px;
-  background:linear-gradient(90deg,var(--pink),var(--blue));
-  color:white;
+  justify-content:center;
+  text-align:center;
 }
 
-.nav-links{display:flex;}
-.nav-links a{margin:0 10px;color:white;cursor:pointer;font-weight:bold;}
-.menu-toggle{display:none;font-size:22px;cursor:pointer;}
-
-@media(max-width:768px){
-.nav-links{display:none;flex-direction:column;position:absolute;top:60px;right:0;background:var(--pink);width:200px;}
-.nav-links.active{display:flex;}
-.menu-toggle{display:block;}
+.hero h1{
+  background:rgba(0,0,0,0.5);
+  padding:20px;
+  border-radius:10px;
 }
-
-.section{display:none;padding:20px;} 
-.active{display:block;}
 
 .container{
-  display:flex;
-  flex-wrap:wrap;
+  padding:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
-  justify-content:center;
 }
 
 .card{
-  background:var(--white);
-  width:240px;
-  border-radius:20px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.1);
+  background:var(--card);
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card-content{
   padding:15px;
-  text-align:center;
-  transition:0.3s;
 }
 
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+.title{
+  font-weight:600;
 }
 
-button{
-  background:linear-gradient(90deg,var(--pink),var(--blue));
+.desc{
+  font-size:0.85rem;
+  color:var(--sub);
+  margin-top:5px;
+}
+
+.btn{
+  margin-top:10px;
+  padding:8px 12px;
   border:none;
-  color:white;
-  padding:10px 15px;
-  border-radius:10px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:20px;
   cursor:pointer;
 }
 
-input{
-  padding:10px;
-  margin:5px;
-  border-radius:10px;
-  border:1px solid #ddd;
+.chat-btn{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:var(--accent);
+  padding:12px 15px;
+  border-radius:50px;
+  cursor:pointer;
 }
-
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-.notify{
-  background:linear-gradient(90deg,var(--peach),var(--pink));
-  padding:10px;
-  border-radius:12px;
-  color:white;
-  margin:5px;
-}
-
-h1,h2,h3{
-  color:#333;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="navbar">
-<h2>🧘 Yoga Coach Pro</h2>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-<div class="nav-links" id="navLinks">
-<a onclick="showSection('home')">Home</a>
-<a onclick="showSection('login')">Login</a>
-<a onclick="showSection('premium')">Premium</a>
-<a onclick="showSection('dashboard')">Dashboard</a>
-</div>
+<header>
+  <div class="logo">🧘 Yoga With Serenity</div>
+  <div class="tagline">Balance Your Mind • Body • Soul</div>
+</header>
+
+<div class="hero">
+  <h1>Find Peace Through Yoga</h1>
 </div>
 
-<div id="home" class="section active">
-<h1 align="center">Welcome to Smart Yoga App</h1>
-<p align="center">Soft • Aesthetic • Calm UI 🌸</p>
+<div class="container">
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3">
+  <div class="card-content">
+    <div class="title">Beginner Yoga</div>
+    <div class="desc">Perfect for starting your yoga journey.</div>
+    <button class="btn">Join Now</button>
+  </div>
 </div>
 
-<div id="login" class="section">
-<h2>Login / Signup</h2>
-<input type="email" id="email" placeholder="Email"><br>
-<input type="password" id="password" placeholder="Password"><br>
-<button onclick="signup()">Signup</button>
-<button onclick="login()">Login</button>
-<p id="authMsg"></p>
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773">
+  <div class="card-content">
+    <div class="title">Advanced Yoga</div>
+    <div class="desc">Improve flexibility and strength.</div>
+    <button class="btn">Join Now</button>
+  </div>
 </div>
 
-<div id="premium" class="section">
-<h2>Premium ₹4500</h2>
-<p>UPI: 6283092228@fam</p>
-<input type="file" id="proof"><br>
-<button onclick="uploadProof()">Upload</button>
-<p id="proofMsg"></p>
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1518611012118-f0c5d6a0e5c0">
+  <div class="card-content">
+    <div class="title">Meditation</div>
+    <div class="desc">Relax your mind and reduce stress.</div>
+    <button class="btn">Join Now</button>
+  </div>
 </div>
 
-<div id="dashboard" class="section">
-<h2>User Dashboard</h2>
-
-<div class="dashboard">
-<div class="card"><h3>🚶 Steps</h3><p id="steps">0</p></div>
-<div class="card"><h3>💧 Water</h3><p id="water">0 L</p></div>
-<div class="card"><h3>🔥 Calories</h3><p id="calories">0</p></div>
-<div class="card"><h3>🧘 Yoga</h3><p id="yoga">No</p></div>
 </div>
 
-<h3>Notifications</h3>
-<div id="notifications"></div>
-
-<button onclick="simulateData()">Simulate Activity</button>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js"></script>
+<div class="chat-btn" onclick="openChat()">💬</div>
 
 <script>
-const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_ID",
-  storageBucket: "YOUR_BUCKET"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const storage = firebase.storage();
-
-function signup(){auth.createUserWithEmailAndPassword(email.value,password.value).then(()=>authMsg.innerText='Signup success').catch(e=>authMsg.innerText=e.message);}
-function login(){auth.signInWithEmailAndPassword(email.value,password.value).then(()=>authMsg.innerText='Login success').catch(e=>authMsg.innerText=e.message);}
-
-function uploadProof(){
-let file=proof.files[0];
-let ref=storage.ref('payments/'+file.name);
-ref.put(file).then(()=>proofMsg.innerText='Uploaded');
+let watsonInstance=null;
+function openChat(){
+  if(watsonInstance){watsonInstance.openWindow();}
 }
+</script>
 
-function simulateData(){
-let steps=Math.floor(Math.random()*10000);
-let water=(Math.random()*3).toFixed(1);
-let calories=Math.floor(Math.random()*2000);
-
-stepsEl=document.getElementById('steps');
-waterEl=document.getElementById('water');
-calEl=document.getElementById('calories');
-yogaEl=document.getElementById('yoga');
-
-stepsEl.innerText=steps;
-waterEl.innerText=water+' L';
-calEl.innerText=calories;
-yogaEl.innerText='Done';
-
-let div=document.createElement('div');
-div.className='notify';
-div.innerText='Reminder: Stay active & hydrated 💖';
-document.getElementById('notifications').appendChild(div);
-}
-
-function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
-function toggleMenu(){navLinks.classList.toggle('active');}
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "6b398c2e-280b-43f0-a8cd-b4ad6f10f588",
+    region: "eu-de",
+    serviceInstanceID: "2c90c288-4b73-4e39-8297-ad10bc4253c4",
+    onLoad: async (instance) => { watsonInstance=instance; await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
 </script>
 
 </body>
