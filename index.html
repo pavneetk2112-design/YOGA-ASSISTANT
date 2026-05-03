@@ -1,20 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga With Serenity</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#fff0f5;
+  --card:#ffffff;
+  --text:#333;
+  --sub:#777;
+  --accent:#ff69b4;
+}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:30px;
+}
+
+.logo{
+  font-size:2.5rem;
+  font-weight:700;
+  color:var(--accent);
+}
+
+.tagline{
+  color:var(--sub);
+}
+
+/* HERO */
+.hero{
+  height:50vh;
+  background:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero h1{
+  background:rgba(255,255,255,0.7);
+  padding:15px 25px;
+  border-radius:15px;
+}
+
+/* GRID */
+.container{
+  padding:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:15px;
+}
+
+.title{
+  font-weight:600;
+}
+
+.desc{
+  font-size:0.9rem;
+  color:var(--sub);
+}
+
+.btn{
+  margin-top:10px;
+  padding:8px 12px;
+  border:none;
+  background:var(--accent);
+  color:#fff;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+/* CHAT BUTTON */
+.chat-btn{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:var(--accent);
+  padding:12px 15px;
+  border-radius:50px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* SIMPLE MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.5);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  width:300px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🧘 Yoga With Serenity</div>
+  <div class="tagline">Balance Your Mind • Body • Soul</div>
+</header>
+
+<div class="hero">
+  <h1>Find Peace Through Yoga</h1>
+</div>
+
+<div class="container">
+
+<!-- Beginner Yoga -->
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3">
+  <div class="card-content">
+    <div class="title">Beginner Yoga</div>
+    <div class="desc">Start your yoga journey easily.</div>
+    <button class="btn" onclick="alert('Beginner session started!')">Start</button>
+  </div>
+</div>
+
+<!-- Health Plan -->
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061">
+  <div class="card-content">
+    <div class="title">Health Plan</div>
+    <div class="desc">Get a simple diet & routine.</div>
+    <button class="btn" onclick="alert('Drink water, eat clean, sleep well 💖')">View</button>
+  </div>
+</div>
+
+<!-- Stress Relief -->
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773">
+  <div class="card-content">
+    <div class="title">Stress Relief</div>
+    <div class="desc">Relax your mind instantly.</div>
+    <button class="btn" onclick="alert('Take deep breaths 🧘')">Relax</button>
+  </div>
+</div>
+
+<!-- Step Counter -->
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
+  <div class="card-content">
+    <div class="title">Step Counter</div>
+    <div class="desc">Track your daily steps.</div>
+    <button class="btn" onclick="countSteps()">Start</button>
+  </div>
+</div>
+
+<!-- BMI -->
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1571019613914-85f342c1d4b5">
+  <div class="card-content">
+    <div class="title">BMI Calculator</div>
+    <div class="desc">Check your body mass index.</div>
+    <button class="btn" onclick="openBMI()">Calculate</button>
+  </div>
+</div>
+
+</div>
+
+<!-- BMI MODAL -->
+<div class="modal" id="bmiModal">
+  <div class="modal-content">
+    <h3>BMI Calculator</h3>
+    <input type="number" id="weight" placeholder="Weight (kg)"><br><br>
+    <input type="number" id="height" placeholder="Height (m)"><br><br>
+    <button onclick="calculateBMI()">Check</button>
+    <p id="result"></p>
+  </div>
+</div>
+
+<div class="chat-btn" onclick="openChat()">💬</div>
+
 <script>
-let watsonInstance = null;
+let watsonInstance=null;
 
+function openChat(){
+  if(watsonInstance){watsonInstance.openWindow();}
+}
+
+/* STEP COUNTER */
+let steps=0;
+function countSteps(){
+  steps+=100;
+  alert("Steps: "+steps);
+}
+
+/* BMI */
+function openBMI(){
+  document.getElementById("bmiModal").style.display="flex";
+}
+
+function calculateBMI(){
+  let w=document.getElementById("weight").value;
+  let h=document.getElementById("height").value;
+  let bmi=(w/(h*h)).toFixed(2);
+  document.getElementById("result").innerText="Your BMI: "+bmi;
+}
+</script>
+
+<script>
 window.watsonAssistantChatOptions = {
-  integrationID: "6b398c2e-280b-43f0-a8cd-b4ad6f10f588",
-  region: "eu-de",
-  serviceInstanceID: "2c90c288-4b73-4e39-8297-ad10bc4253c4",
-
-  onLoad: async (instance) => {
-    watsonInstance = instance;
-    await instance.render();
-  }
+integrationID: "6b398c2e-280b-43f0-a8cd-b4ad6f10f588",
+region: "eu-de",
+serviceInstanceID: "2c90c288-4b73-4e39-8297-ad10bc4253c4",
+onLoad: async (instance) => { watsonInstance=instance; await instance.render(); }
 };
-
 setTimeout(function(){
-  const t = document.createElement('script');
-  t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/latest/WatsonAssistantChatEntry.js";
-  document.head.appendChild(t);
+const t=document.createElement('script');
+t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/latest/WatsonAssistantChatEntry.js";
+document.head.appendChild(t);
 });
 </script>
+
+</body>
+</html>
