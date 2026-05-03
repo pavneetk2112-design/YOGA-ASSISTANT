@@ -3,175 +3,250 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yoga With Serenity</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Yoga Coach Pro</title>
 
 <style>
 :root{
-  --bg:#0f172a;
-  --card:#1e293b;
-  --text:#e2e8f0;
-  --sub:#94a3b8;
-  --accent:#22c55e;
+  --pink:#ff6f91;
+  --peach:#ffb7a5;
+  --blue:#6ec6ff;
+  --white:#ffffff;
 }
 
 body{
   margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  font-family:'Segoe UI';
+  background:linear-gradient(135deg,#ffffff,#ffe4ec,#e3f2fd);
 }
 
-header{
-  text-align:center;
-  padding:40px 20px;
-}
-
-.logo{
-  font-size:3rem;
-  font-weight:700;
-}
-
-.tagline{
-  color:var(--sub);
-  margin-top:10px;
-}
-
-.hero{
-  height:60vh;
-  background:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b') center/cover;
+/* NAVBAR */
+.navbar{
   display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+  justify-content:space-between;
+  padding:15px 30px;
+  background:linear-gradient(90deg,var(--pink),var(--blue));
+  color:white;
 }
 
-.hero h1{
-  background:rgba(0,0,0,0.5);
-  padding:20px;
+.nav-links a{
+  margin:0 15px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* HERO */
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:50px;
+}
+
+.hero-text h1{
+  font-size:40px;
+}
+
+.hero-text button{
+  background:var(--pink);
+  border:none;
+  padding:12px 20px;
+  color:white;
   border-radius:10px;
 }
 
-.container{
+/* PROGRAMS */
+.programs{
   padding:30px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+
+.cards{
+  display:flex;
   gap:20px;
+  flex-wrap:wrap;
 }
 
 .card{
-  background:var(--card);
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 5px 20px rgba(0,0,0,0.4);
-}
-
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-
-.card-content{
+  background:white;
   padding:15px;
+  border-radius:15px;
+  width:220px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
-.title{
-  font-weight:600;
-}
-
-.desc{
-  font-size:0.85rem;
-  color:var(--sub);
-  margin-top:5px;
-}
-
-.btn{
-  margin-top:10px;
-  padding:8px 12px;
-  border:none;
-  background:var(--accent);
-  color:#fff;
+/* PREMIUM */
+.premium{
+  background:linear-gradient(135deg,#ffe0f0,#e0f7ff);
+  padding:30px;
+  margin:20px;
   border-radius:20px;
-  cursor:pointer;
+  width:300px;
 }
 
-.chat-btn{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:var(--accent);
-  padding:12px 15px;
-  border-radius:50px;
-  cursor:pointer;
+.qr{
+  width:150px;
 }
+
+/* DASHBOARD */
+.dashboard{
+  display:flex;
+  gap:20px;
+  padding:30px;
+}
+
+.stat{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* CHATBOT */
+.chatbot{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:300px;
+  background:white;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.chat-header{
+  background:linear-gradient(90deg,var(--pink),var(--blue));
+  color:white;
+  padding:10px;
+}
+
+.chat-box{
+  height:200px;
+  overflow:auto;
+  padding:10px;
+}
+
+.chat-input{
+  display:flex;
+}
+
+.chat-input input{
+  flex:1;
+  border:none;
+  padding:10px;
+}
+
+.chat-input button{
+  background:var(--pink);
+  color:white;
+  border:none;
+  padding:10px;
+}
+
+.message{
+  margin:5px;
+  padding:8px;
+  border-radius:10px;
+}
+
+.user{background:#e3f2fd;}
+.bot{background:#ffe4ec;}
+
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">🧘 Yoga With Serenity</div>
-  <div class="tagline">Balance Your Mind • Body • Soul</div>
-</header>
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>🧘 Yoga Coach Pro</h2>
+  <div class="nav-links">
+    <a>Home</a>
+    <a>Programs</a>
+    <a>Premium</a>
+    <a>Dashboard</a>
+  </div>
+</div>
 
+<!-- HERO -->
 <div class="hero">
-  <h1>Find Peace Through Yoga</h1>
+  <div class="hero-text">
+    <h1>Transform Your Mind & Body</h1>
+    <p>Personalized yoga & wellness guidance</p>
+    <button>Start Your Journey</button>
+  </div>
+  <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3" width="300">
 </div>
 
-<div class="container">
-
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3">
-  <div class="card-content">
-    <div class="title">Beginner Yoga</div>
-    <div class="desc">Perfect for starting your yoga journey.</div>
-    <button class="btn">Join Now</button>
+<!-- PROGRAMS -->
+<div class="programs">
+  <h2>Popular Programs</h2>
+  <div class="cards">
+    <div class="card">Beginner Yoga</div>
+    <div class="card">Weight Loss</div>
+    <div class="card">Stress Relief</div>
+    <div class="card">Flexibility</div>
   </div>
 </div>
 
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773">
-  <div class="card-content">
-    <div class="title">Advanced Yoga</div>
-    <div class="desc">Improve flexibility and strength.</div>
-    <button class="btn">Join Now</button>
+<!-- PREMIUM -->
+<div class="premium">
+  <h2>💎 Premium Plan</h2>
+  <h3>₹4500/month</h3>
+  <p>✔ Personal Plan</p>
+  <p>✔ Diet Chart</p>
+  <p>✔ 1-on-1 Coaching</p>
+
+  <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=6283092228@fam&pn=YogaCoach&am=4500&cu=INR">
+
+  <br><br>
+  <button>Pay Now</button>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+  <div class="stat">🚶 Steps: 7248</div>
+  <div class="stat">💧 Water: 2.4L</div>
+  <div class="stat">🔥 Calories: 650</div>
+  <div class="stat">🧘 Yoga: 30 min</div>
+</div>
+
+<!-- CHATBOT -->
+<div class="chatbot">
+  <div class="chat-header">💬 Yoga Assistant</div>
+  <div class="chat-box" id="chatBox"></div>
+  <div class="chat-input">
+    <input id="input" placeholder="Ask something...">
+    <button onclick="send()">Send</button>
   </div>
 </div>
-
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1518611012118-f0c5d6a0e5c0">
-  <div class="card-content">
-    <div class="title">Meditation</div>
-    <div class="desc">Relax your mind and reduce stress.</div>
-    <button class="btn">Join Now</button>
-  </div>
-</div>
-
-</div>
-
-<div class="chat-btn" onclick="openChat()">💬</div>
 
 <script>
-let watsonInstance=null;
-function openChat(){
-  if(watsonInstance){watsonInstance.openWindow();}
+function send(){
+  let input=document.getElementById("input");
+  let msg=input.value;
+  if(msg==="") return;
+
+  let box=document.getElementById("chatBox");
+
+  let user=document.createElement("div");
+  user.className="message user";
+  user.innerText=msg;
+  box.appendChild(user);
+
+  let bot=document.createElement("div");
+  bot.className="message bot";
+
+  if(msg.includes("yoga")){
+    bot.innerText="Try daily yoga for better health 🧘";
+  } else if(msg.includes("sleep")){
+    bot.innerText="Sleep 7-8 hours 😴";
+  } else if(msg.includes("diet")){
+    bot.innerText="Eat healthy & drink water 💧";
+  } else {
+    bot.innerText="I am your yoga assistant 😊";
+  }
+
+  box.appendChild(bot);
+  input.value="";
 }
-</script>
-
-<script>
-  window.watsonAssistantChatOptions = {
-    integrationID: "6b398c2e-280b-43f0-a8cd-b4ad6f10f588",
-    region: "eu-de",
-    serviceInstanceID: "2c90c288-4b73-4e39-8297-ad10bc4253c4",
-    onLoad: async (instance) => { watsonInstance=instance; await instance.render(); }
-  };
-  setTimeout(function(){
-    const t=document.createElement('script');
-    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
-    document.head.appendChild(t);
-  });
 </script>
 
 </body>
